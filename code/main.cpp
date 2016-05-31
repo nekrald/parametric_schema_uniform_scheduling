@@ -8,6 +8,7 @@
 #include <cmath>
 #include <cassert>
 #include <sstream>
+#include <experimental/filesystem>
 
 // Prepares filename on parameters submitted to GroupEvaluator.
 std::string BuildNameGroup(
@@ -17,8 +18,13 @@ std::string BuildNameGroup(
         int fast_upper,
         int unit_lower,
         int unit_upper) {
-    std::stringstream builder;
-    std::string result = "./group_evaluation/group-";
+
+    // Create directory if it does not exist yet.
+    std::string directory_name = "./group_evaluation";
+    std::experimental::filesystem::path path(directory_name);
+    std::experimental::filesystem::create_directories(path);
+
+    std::string result = directory_name + "/group-";
 
     // Write all optimizers.
     for (const auto& item : who) {
@@ -27,6 +33,8 @@ std::string BuildNameGroup(
 
     result += "speed=";
     std::string speed_string;
+
+    std::stringstream builder;
     builder << speed;
     builder >> speed_string;
     result += speed_string;
