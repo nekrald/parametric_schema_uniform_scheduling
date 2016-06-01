@@ -9,7 +9,7 @@ This code is used to provide bounds for algorithm of Cho and Sahni
 and our algorithm (bound is obtained by optimization of Parametric Schema presented in paper). 
 Makefile is presented, so compilation is done with command:
 
-'make release'
+`make release`
 
 Note that we need GNU g++ with version > 5.3.1. that supports c++17.
 
