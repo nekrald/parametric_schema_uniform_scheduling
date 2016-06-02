@@ -23,12 +23,14 @@ double SchemaOptimizerBrute::GetOptimalPerformance() {
     int group_size = (n - 1) * fast_;
     int Rmax = unit_ / group_size;
     double best_phi;
+    double d = double(unit_ + fast_) / fast_;
     int best_r;
     for (int R = 0; R <= Rmax; ++R) {
         int m2 = R * group_size;
         int m1 = unit_ - m2;
         for (double phi = 0.01, add = 0.01; phi < 1.0 + EPS; phi += add) {
             double l = speed_, r = speed_ * 100.;
+            r = std::max(r, 2. + 2. + (speed_ - 1) * (d - 1) / (speed_ + d - 1));
             // Binary search for border B.
             for (int iter = 0; iter < 50; ++iter) {
                 double mid = (l + r) / 2.;
