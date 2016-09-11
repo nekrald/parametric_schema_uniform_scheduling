@@ -12,13 +12,9 @@ The structure of repository is the following:
 This code is used to provide bounds for algorithms of Cho and Sahni 
 and our algorithm (bound is obtained by optimization of Parametric Schema presented in paper). 
 Makefile is presented, so compilation is done with command:
-
-`make release`
-
+`make release`.
 Note that we need GNU g++ with version > 5.3.1 supporting C++17.
-
 One can run code by executing `code/main`. Result of execution is written to folder `group_evaluation`. 
-
 In main.cpp one can specify amounts of fast and unit processors, and algorithm will provide bounds obtained by 
 our algorithm and by algorithm of Cho and Sahni.
 
