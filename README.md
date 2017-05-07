@@ -1,5 +1,7 @@
 # General parametric scheme for the uniform scheduling problem with two different speeds 
+
 ===========================
+
 This is a scientific project.
 This repository contains source code and Wolfram Mathematica notebook for the paper 
 "General parametric scheme for the uniform scheduling problem with two
