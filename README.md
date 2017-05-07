@@ -1,4 +1,4 @@
-# General parametric scheme for the uniform scheduling problem with two different speeds 
+# General parametric scheme for the online uniform machine scheduling problem with two different speeds
 
 ===========================
 
