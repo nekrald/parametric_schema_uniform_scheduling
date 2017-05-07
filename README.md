@@ -25,3 +25,5 @@ in folder `result_and_processing/process/result`
 
 3. Wolfram Mathematica notebook is situated at `wolfram_notebook` folder.
 
+4. Appendices can be found at `appendix_A/a_appendix.pdf`, `appendix_B/b_appendix.pdf`, `appendix_C/c_appendix.pdf`.
+

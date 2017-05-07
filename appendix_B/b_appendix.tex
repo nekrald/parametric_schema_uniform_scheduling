@@ -1,0 +1,99 @@
+\documentclass[a4paper, preprint, authoryear]{elsarticle} 
+
+\usepackage{xr}
+\externaldocument{../../paper/uniform}
+
+\usepackage{pdfpages}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float} 
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{graphicx, daytime} 
+\usepackage{enumitem}
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{environ}
+\usepackage{listings}
+\usepackage{lineno}
+\usepackage{etoolbox}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{array,caption}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{property}{Property}
+
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+\begin{document}
+% Computational Approach
+\section*{Appendix B. Computational Approach}
+
+Since we do not have explicit formula for $B$, it is natural to find some computational approach. 
+Then it is useful to propose an algorithm searching for the optimal $B$ 
+with given $m, k, s$.
+For example, we can try the following (approximation) algorithm to find worst-case performance $\hat{B} \geq B^{opt}$:
+
+\subsection*{Algorithm with a grid search for $\varphi$}
+
+\begin{enumerate}[itemsep = -1mm, leftmargin = *]
+
+    \item Binary Search over $B$. Really, monotonous properties hold. As an upper bound we can take the Cho-Sahni result for the general case.
+
+    \item Assume from now that $B$ is fixed. Check each $\varphi$ over a grid on the interval $[0, 1]$.
+
+    \item Assume from now that $\varphi$ is fixed. Do binary search over $R$ for the third inequality from \eqref{scheme}.
+
+    \item Here we assume that $R$ is fixed. Perform conditions check. Note that $z$ is obtained explicitly from $s$.
+
+\end{enumerate}
+
+Another option is to consider all possible $R$, then we do not need to do the 
+grid search for $\varphi$. 
+
+\subsection*{Optimization algorithm with iterating through the number of groups $R$}
+
+\begin{enumerate}[itemsep = -1mm, leftmargin = *]
+    \item Binary search over $B$ as in previous algorithm.
+
+    \item Assume from now that $B$ is fixed. Do the following step for each $R$.
+
+    \item The first inequality in \eqref{scheme} gives linear constraint 
+        for $\varphi$. The third inequality in \eqref{scheme} is solved 
+        by binary search over $\varphi$.
+
+\end{enumerate}
+
+
+From Property \ref{property-increase-m} it follows that  for fixed $s, k$ and running $m$ from 1 to infinity we may use the optimal result for
+$m - 1$ as an upper bound for $B$, if the properties \ref{property-increase-m} hold.
+
+
+\subsection*{Computation Results}
+
+
+Here we present a plot of scheme quality for some parameters, and compare our results to the Cho-Sahni results.
+
+        \includegraphics[scale = 0.35]{{./include/speed=3.0-fast=7}.png}
+        \includegraphics[scale = 0.35]{{./include/speed=2.0-fast=7}.png}
+
+
+        \includegraphics[scale = 0.35]{{./include/speed=4.0-fast=9}.png}
+        \includegraphics[scale = 0.35]{{./include/speed=1.5-fast=9}.png}
+
+Levels plot for the difference in worst-case performance between our scheme and Cho-Sahni result.
+
+        \includegraphics[scale = 0.35]{{./include/contour-speed=2.0}.png}
+        \includegraphics[scale = 0.35]{{./include/contour-speed=3.0}.png}
+
+The table below illustrates performance of the scheme presented in the paper depending on the number of fast and normal machines when $s = 2$.
+
+\input{./include/speed=2.0-table.tex}
+
+
+\end{document}
